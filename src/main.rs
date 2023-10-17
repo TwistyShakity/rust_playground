@@ -7,15 +7,19 @@ struct SomeStruct {
     string_field: String,
 }
 
-
 fn print_debug_format<T: Debug>(target: T) {
     println!("{:#?}", target)
 }
+
 fn main() {
     let mut some_instance = SomeStruct {
+        int_field: 99,
+        bool_field: true,
         string_field: "Hello".into(),
-        ..Default::default()
     };
+
+    let mut some_instance_clone = some_instance.clone();
+    print_debug_format(some_instance_clone);
 
     print_debug_format(some_instance);
 }
